@@ -589,135 +589,103 @@ const Index = () => {
 
   <!-- CARDS -->
   <div style="text-align:center;margin-bottom:16px;font-size:12px;color:#555;letter-spacing:2px">НАЖМИ НА КАРТОЧКУ — КРАТКОЕ ОПИСАНИЕ</div>
-  <div class="kb-cards">
-    <div class="kb-card" onclick="openModal('m1')">
-      <div class="kb-card-bar" style="background:hsl(220,90%,60%)"></div>
-      <div class="kb-card-num">УГРОЗА #1</div>
-      <div class="kb-card-emoji">🎣</div>
-      <div class="kb-card-title" style="color:hsl(220,90%,60%)">Фишинг</div>
-      <div class="kb-card-sub">Крадут данные через ложь</div>
-      <div class="kb-card-btn" style="color:hsl(220,90%,60%);border-color:hsl(220,90%,60%,0.4);background:hsl(220,90%,60%,0.1)">Краткое описание ↗</div>
-    </div>
-    <div class="kb-card" onclick="openModal('m2')">
-      <div class="kb-card-bar" style="background:hsl(147,87%,52%)"></div>
-      <div class="kb-card-num">УГРОЗА #2</div>
-      <div class="kb-card-emoji">🔓</div>
-      <div class="kb-card-title" style="color:hsl(147,87%,52%)">Взлом аккаунтов</div>
-      <div class="kb-card-sub">Захватывают твой профиль</div>
-      <div class="kb-card-btn" style="color:hsl(147,87%,52%);border-color:hsl(147,87%,52%,0.4);background:hsl(147,87%,52%,0.1)">Краткое описание ↗</div>
-    </div>
-    <div class="kb-card" onclick="openModal('m3')">
-      <div class="kb-card-bar" style="background:hsl(35,100%,55%)"></div>
-      <div class="kb-card-num">УГРОЗА #3</div>
-      <div class="kb-card-emoji">🎁</div>
-      <div class="kb-card-title" style="color:hsl(35,100%,55%)">Фейковые розыгрыши</div>
-      <div class="kb-card-sub">Обещают призы — берут данные</div>
-      <div class="kb-card-btn" style="color:hsl(35,100%,55%);border-color:hsl(35,100%,55%,0.4);background:hsl(35,100%,55%,0.1)">Краткое описание ↗</div>
-    </div>
+  <div class="kb-cards" id="threats">
+    <div class="kb-card" onclick="openModal('m1')"><div class="kb-card-bar" style="background:hsl(220,90%,60%)"></div><div class="kb-card-num">УГРОЗА #1</div><div class="kb-card-emoji">🎣</div><div class="kb-card-title" style="color:hsl(220,90%,60%)">Фишинг</div><div class="kb-card-sub">Крадут данные через ложь</div><div class="kb-card-btn" style="color:hsl(220,90%,60%);border-color:rgba(100,150,255,0.4);background:rgba(100,150,255,0.1)">Краткое описание ↗</div></div>
+    <div class="kb-card" onclick="openModal('m2')"><div class="kb-card-bar" style="background:hsl(147,87%,52%)"></div><div class="kb-card-num">УГРОЗА #2</div><div class="kb-card-emoji">🔓</div><div class="kb-card-title" style="color:hsl(147,87%,52%)">Взлом аккаунтов</div><div class="kb-card-sub">Захватывают твой профиль</div><div class="kb-card-btn" style="color:hsl(147,87%,52%);border-color:rgba(50,220,120,0.4);background:rgba(50,220,120,0.1)">Краткое описание ↗</div></div>
+    <div class="kb-card" onclick="openModal('m3')"><div class="kb-card-bar" style="background:hsl(35,100%,55%)"></div><div class="kb-card-num">УГРОЗА #3</div><div class="kb-card-emoji">🎁</div><div class="kb-card-title" style="color:hsl(35,100%,55%)">Фейковые розыгрыши</div><div class="kb-card-sub">Обещают призы — берут данные</div><div class="kb-card-btn" style="color:hsl(35,100%,55%);border-color:rgba(255,165,50,0.4);background:rgba(255,165,50,0.1)">Краткое описание ↗</div></div>
+    <div class="kb-card" onclick="openModal('m4')"><div class="kb-card-bar" style="background:hsl(0,85%,60%)"></div><div class="kb-card-num">УГРОЗА #4</div><div class="kb-card-emoji">🦠</div><div class="kb-card-title" style="color:hsl(0,85%,60%)">Вредоносное ПО</div><div class="kb-card-sub">Программы-шпионы на устройстве</div><div class="kb-card-btn" style="color:hsl(0,85%,60%);border-color:rgba(220,60,60,0.4);background:rgba(220,60,60,0.1)">Краткое описание ↗</div></div>
+    <div class="kb-card" onclick="openModal('m5')"><div class="kb-card-bar" style="background:hsl(300,70%,60%)"></div><div class="kb-card-num">УГРОЗА #5</div><div class="kb-card-emoji">😰</div><div class="kb-card-title" style="color:hsl(300,70%,60%)">Кибербуллинг</div><div class="kb-card-sub">Травля и давление в интернете</div><div class="kb-card-btn" style="color:hsl(300,70%,60%);border-color:rgba(200,80,200,0.4);background:rgba(200,80,200,0.1)">Краткое описание ↗</div></div>
+    <div class="kb-card" onclick="openModal('m6')"><div class="kb-card-bar" style="background:hsl(270,80%,65%)"></div><div class="kb-card-num">УГРОЗА #6</div><div class="kb-card-emoji">🎮</div><div class="kb-card-title" style="color:hsl(270,80%,65%)">Скам в играх</div><div class="kb-card-sub">Обманывают в игровом чате</div><div class="kb-card-btn" style="color:hsl(270,80%,65%);border-color:rgba(150,80,255,0.4);background:rgba(150,80,255,0.1)">Краткое описание ↗</div></div>
   </div>
 
-  <!-- SECTION 1: ФИШИНГ -->
-  <div class="kb-section" id="phishing">
-    <div class="kb-section-head">
-      <div class="kb-section-icon" style="background:hsl(220,90%,60%,0.15);border:1.5px solid hsl(220,90%,60%,0.3)">🎣</div>
-      <div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #1</div><div class="kb-section-title" style="color:hsl(220,90%,60%)">Фишинг</div></div>
-    </div>
-    <p class="kb-section-intro">Фишинг — одна из самых распространённых угроз в интернете. Само слово происходит от английского fishing (рыбалка): мошенники забрасывают «удочку» и ждут, пока жертва сама клюнет. Только вместо рыбы они ловят твои пароли, номера карт и личные данные.</p>
-    <div class="kb-label" style="color:hsl(220,90%,60%)">⚡ КАК ЭТО ПРОИСХОДИТ НА САМОМ ДЕЛЕ</div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">1</div><h4>Как выглядит фишинговый сайт</h4><p>Такой сайт может быть неотличим от оригинала — тот же логотип, те же цвета, похожий адрес. Например: vk-login.ru, sberbank-online.net, steam-gift.com. Ключевая разница — в адресной строке. Настоящий адрес ВКонтакте всегда vk.com.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">2</div><h4>Фишинг в сообщениях</h4><p>Часто мошенники пишут тебе «от имени» друга или службы поддержки: «Твой аккаунт взломан, срочно подтверди данные!». Это паника — их главный инструмент.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">3</div><h4>Email-фишинг</h4><p>На почту приходит письмо якобы от банка. Оно выглядит официально, но ссылка ведёт на поддельный сайт.</p></div>
-    <div class="kb-grid2">
-      <div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">📊 СТАТИСТИКА</div><p>Каждый третий пользователь хотя бы раз переходил по фишинговой ссылке. Среди подростков показатель выше.</p></div>
-      <div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Школьник получил сообщение «от друга» со ссылкой на «крутую игру». Ввёл логин от ВКонтакте — и потерял аккаунт.</p></div>
-    </div>
-    <div class="kb-checklist" style="border:1px solid hsl(220,90%,60%,0.3);background:hsl(220,90%,60%,0.05)">
-      <div class="kb-label" style="color:hsl(220,90%,60%)">✅ КАК ЗАЩИТИТЬСЯ — ЧЕКЛИСТ</div>
-      <ul>
-        <li><div class="kb-check" style="background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%)">✓</div>Всегда смотри на адрес сайта — он должен точно совпадать с официальным</li>
-        <li><div class="kb-check" style="background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%)">✓</div>Никогда не переходи по ссылкам из сообщений, даже от «друзей»</li>
-        <li><div class="kb-check" style="background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%)">✓</div>Включи двухфакторную аутентификацию</li>
-        <li><div class="kb-check" style="background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%)">✓</div>Используй антивирус с защитой от фишинга</li>
-        <li><div class="kb-check" style="background:hsl(220,90%,60%,0.2);color:hsl(220,90%,60%)">✓</div>Если что-то кажется подозрительным — остановись и подумай</li>
-      </ul>
-    </div>
-    <div class="kb-meme" style="border:1px solid hsl(220,90%,60%,0.2);background:hsl(220,90%,60%,0.05)"><span style="font-size:22px">😂</span>Когда зашёл по ссылке из письма «ВЫ ВЫИГРАЛИ АЙФОН»... 💀</div>
-  </div>
+  <!-- SECTION 1 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(100,150,255,0.15);border:1.5px solid rgba(100,150,255,0.3)">🎣</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #1</div><div class="kb-section-title" style="color:hsl(220,90%,60%)">Фишинг</div></div></div>
+  <p class="kb-section-intro">Фишинг — одна из самых распространённых угроз. Мошенники создают фейковые сайты и выманивают логины, пароли и данные карт. Особая опасность — он постоянно эволюционирует под новые платформы.</p>
+  <div class="kb-label" style="color:hsl(220,90%,60%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. Фишинговый сайт</b><br><p>Выглядит как оригинал — тот же логотип, цвета, адрес типа vk-login.ru. Настоящий адрес ВКонтакте всегда только vk.com. Мошенники заменяют буквы: «о» на «0», «l» на «I».</p></div>
+  <div class="kb-block"><b>2. Фишинг в сообщениях</b><br><p>Пишут «от имени» друга: «Твой аккаунт взломан, срочно подтверди!». Паника — главный инструмент. Аккаунт друга мог быть взломан заранее.</p></div>
+  <div class="kb-block"><b>3. Email и голосовой фишинг</b><br><p>Письмо «от банка» с поддельной ссылкой. Или звонок «из службы безопасности» — выманивают коды из смс.</p></div>
+  <div class="kb-block"><b>4. QR-фишинг</b><br><p>Поддельные QR-коды поверх настоящих в кафе, магазинах. После сканирования попадаешь на фишинговый сайт.</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">📊 СТАТИСТИКА</div><p>Каждый третий пользователь переходил по фишинговой ссылке. В 2024 году — 1,7 млн уникальных фишинговых сайтов.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Школьник получил «ссылку от друга» на крутую игру. Ввёл логин ВКонтакте — аккаунт взломали за минуту.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(100,150,255,0.3);background:rgba(100,150,255,0.05)"><div class="kb-label" style="color:hsl(220,90%,60%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(100,150,255,0.2);color:hsl(220,90%,60%)">✓</div>Проверяй адрес сайта — каждую букву</li><li><div class="kb-check" style="background:rgba(100,150,255,0.2);color:hsl(220,90%,60%)">✓</div>Не переходи по ссылкам из сообщений</li><li><div class="kb-check" style="background:rgba(100,150,255,0.2);color:hsl(220,90%,60%)">✓</div>Включи двухфакторную аутентификацию</li><li><div class="kb-check" style="background:rgba(100,150,255,0.2);color:hsl(220,90%,60%)">✓</div>Сохрани важные сайты в закладки</li><li><div class="kb-check" style="background:rgba(100,150,255,0.2);color:hsl(220,90%,60%)">✓</div>При сомнениях — закрой и открой сайт вручную</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(100,150,255,0.2);background:rgba(100,150,255,0.05)"><span style="font-size:22px">😂</span>Когда зашёл по ссылке «ВЫ ВЫИГРАЛИ АЙФОН»... 💀</div></div>
 
-  <!-- SECTION 2: ВЗЛОМ -->
-  <div class="kb-section" id="hacking">
-    <div class="kb-section-head">
-      <div class="kb-section-icon" style="background:hsl(147,87%,52%,0.15);border:1.5px solid hsl(147,87%,52%,0.3)">🔓</div>
-      <div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #2</div><div class="kb-section-title" style="color:hsl(147,87%,52%)">Взлом аккаунтов</div></div>
-    </div>
-    <p class="kb-section-intro">Взлом аккаунтов — несанкционированный доступ к твоему профилю. После взлома мошенник может писать от твоего имени, красть деньги, шантажировать или уничтожить всё что ты годами собирал.</p>
-    <div class="kb-label" style="color:hsl(147,87%,52%)">⚡ КАК ЭТО ПРОИСХОДИТ НА САМОМ ДЕЛЕ</div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">1</div><h4>Перебор паролей (брутфорс)</h4><p>Специальная программа перебирает тысячи комбинаций в секунду. Пароль «12345» взломают мгновенно. «K#9mPz$vL2» — тысячи лет.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">2</div><h4>Утечки баз данных</h4><p>Когда сайт взламывают, в сеть утекают миллионы паролей. Если ты используешь один пароль везде — одной утечки достаточно.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">3</div><h4>Социальная инженерия</h4><p>Мошенник притворяется другом или техподдержкой и просит сообщить пароль. Никакая настоящая служба поддержки никогда не попросит твой пароль.</p></div>
-    <div class="kb-grid2">
-      <div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">📊 СТАТИСТИКА</div><p>Пароль «123456» используют более 23 миллионов пользователей. Самый популярный — и самый опасный.</p></div>
-      <div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Геймер три года прокачивал аккаунт. Использовал один пароль везде. Хакер продал все предметы. Три года — за ноль.</p></div>
-    </div>
-    <div class="kb-checklist" style="border:1px solid hsl(147,87%,52%,0.3);background:hsl(147,87%,52%,0.05)">
-      <div class="kb-label" style="color:hsl(147,87%,52%)">✅ КАК ЗАЩИТИТЬСЯ — ЧЕКЛИСТ</div>
-      <ul>
-        <li><div class="kb-check" style="background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%)">✓</div>Уникальный пароль для каждого сайта. Используй Bitwarden — бесплатный менеджер паролей</li>
-        <li><div class="kb-check" style="background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%)">✓</div>Минимум 12 символов, буквы разного регистра, цифры и спецсимволы</li>
-        <li><div class="kb-check" style="background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%)">✓</div>Включи двухфакторную аутентификацию везде где можно</li>
-        <li><div class="kb-check" style="background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%)">✓</div>Проверь свою почту на haveibeenpwned.com</li>
-        <li><div class="kb-check" style="background:hsl(147,87%,52%,0.2);color:hsl(147,87%,52%)">✓</div>Никому не говори пароли — даже «техподдержке»</li>
-      </ul>
-    </div>
-    <div class="kb-meme" style="border:1px solid hsl(147,87%,52%,0.2);background:hsl(147,87%,52%,0.05)"><span style="font-size:22px">😂</span>Мой пароль: «пароль123». Хакер: 😂🎉</div>
-  </div>
+  <!-- SECTION 2 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(50,220,120,0.15);border:1.5px solid rgba(50,220,120,0.3)">🔓</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #2</div><div class="kb-section-title" style="color:hsl(147,87%,52%)">Взлом аккаунтов</div></div></div>
+  <p class="kb-section-intro">Несанкционированный доступ к профилю в соцсети, игре или почте. После взлома мошенник пишет от твоего имени, крадёт деньги или уничтожает годами собранное. Особо опасен взлом почты — через неё восстанавливаются все остальные аккаунты.</p>
+  <div class="kb-label" style="color:hsl(147,87%,52%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. Брутфорс</b><br><p>Программа перебирает тысячи комбинаций в секунду. «12345» — доля секунды. «K#9mPz$vL2» — тысячи лет. Хакеры используют словари популярных паролей и имён.</p></div>
+  <div class="kb-block"><b>2. Утечки баз данных</b><br><p>Взломали один сайт — утекли миллионы паролей. Один пароль везде = одна утечка, все аккаунты под угрозой. Хакеры продают такие базы на закрытых форумах.</p></div>
+  <div class="kb-block"><b>3. Социальная инженерия</b><br><p>Мошенник притворяется техподдержкой и просит код или пароль. Настоящая поддержка НИКОГДА не просит пароль.</p></div>
+  <div class="kb-block"><b>4. Вредоносные расширения</b><br><p>Расширения браузера перехватывают пароли и отправляют злоумышленникам. Особенно часто — в читах для игр и взломанных программах.</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">📊 СТАТИСТИКА</div><p>«123456» используют 23 млн пользователей. Каждую секунду происходит ~1900 кибератак, большинство — подбором паролей.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Геймер 3 года прокачивал аккаунт. Один пароль везде. Утечка с форума — хакер продал все предметы. Поддержка отказала в восстановлении.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(50,220,120,0.3);background:rgba(50,220,120,0.05)"><div class="kb-label" style="color:hsl(147,87%,52%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(50,220,120,0.2);color:hsl(147,87%,52%)">✓</div>Уникальный пароль для каждого сайта (Bitwarden — бесплатно)</li><li><div class="kb-check" style="background:rgba(50,220,120,0.2);color:hsl(147,87%,52%)">✓</div>Минимум 12 символов, разные регистры, цифры, спецсимволы</li><li><div class="kb-check" style="background:rgba(50,220,120,0.2);color:hsl(147,87%,52%)">✓</div>Двухфакторная аутентификация везде</li><li><div class="kb-check" style="background:rgba(50,220,120,0.2);color:hsl(147,87%,52%)">✓</div>Проверь почту на haveibeenpwned.com</li><li><div class="kb-check" style="background:rgba(50,220,120,0.2);color:hsl(147,87%,52%)">✓</div>Никому не говори пароли — даже «техподдержке»</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(50,220,120,0.2);background:rgba(50,220,120,0.05)"><span style="font-size:22px">😂</span>Мой пароль: «пароль123». Хакер: 😂🎉</div></div>
 
-  <!-- SECTION 3: РОЗЫГРЫШИ -->
-  <div class="kb-section" id="giveaway">
-    <div class="kb-section-head">
-      <div class="kb-section-icon" style="background:hsl(35,100%,55%,0.15);border:1.5px solid hsl(35,100%,55%,0.3)">🎁</div>
-      <div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #3</div><div class="kb-section-title" style="color:hsl(35,100%,55%)">Фейковые розыгрыши</div></div>
-    </div>
-    <p class="kb-section-intro">Фейковые розыгрыши играют на желании получить что-то бесплатно. Бесплатный iPhone, PlayStation, деньги на карту — звучит заманчиво. Но за каждым предложением скрывается ловушка.</p>
-    <div class="kb-label" style="color:hsl(35,100%,55%)">⚡ КАК ЭТО ПРОИСХОДИТ НА САМОМ ДЕЛЕ</div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">1</div><h4>Схема «оплати доставку»</h4><p>Ты «выиграл»! Оплати доставку — 500 рублей. Платишь. Приз не приходит. Иногда просят несколько раз: доставка, таможня, страховка.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">2</div><h4>Схема кражи аккаунта</h4><p>Для «получения приза» нужно войти на специальный сайт. Это фишинг — мошенники получают доступ к твоему профилю.</p></div>
-    <div class="kb-block"><div style="width:28px;height:28px;border-radius:50%;background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-bottom:10px">3</div><h4>Схема сбора данных</h4><p>Заполни форму: имя, телефон, адрес, данные карты. Эти данные продают или используют для других схем.</p></div>
-    <div class="kb-grid2">
-      <div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">📊 СТАТИСТИКА</div><p>Подростки 13–17 лет — самая частая аудитория. Мошенники таргетируют TikTok, ВКонтакте, Telegram.</p></div>
-      <div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Девочка «выиграла» AirPods в TikTok. Оплатила доставку 800 рублей. Деньги ушли — аккаунт исчез.</p></div>
-    </div>
-    <div class="kb-checklist" style="border:1px solid hsl(35,100%,55%,0.3);background:hsl(35,100%,55%,0.05)">
-      <div class="kb-label" style="color:hsl(35,100%,55%)">✅ КАК ЗАЩИТИТЬСЯ — ЧЕКЛИСТ</div>
-      <ul>
-        <li><div class="kb-check" style="background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%)">✓</div>Проверяй дату создания аккаунта организатора</li>
-        <li><div class="kb-check" style="background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%)">✓</div>Настоящий розыгрыш никогда не просит денег за доставку</li>
-        <li><div class="kb-check" style="background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%)">✓</div>Загугли название розыгрыша + «развод»</li>
-        <li><div class="kb-check" style="background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%)">✓</div>Официальные розыгрыши — только на верифицированных аккаунтах</li>
-        <li><div class="kb-check" style="background:hsl(35,100%,55%,0.2);color:hsl(35,100%,55%)">✓</div>Если написали в личку «ты выиграл» — почти наверняка обман</li>
-      </ul>
-    </div>
-    <div class="kb-meme" style="border:1px solid hsl(35,100%,55%,0.2);background:hsl(35,100%,55%,0.05)"><span style="font-size:22px">😂</span>«Ты 1000-й посетитель! Забери iPhone!» — Я и мои 999 других вкладок 💀</div>
-  </div>
+  <!-- SECTION 3 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(255,165,50,0.15);border:1.5px solid rgba(255,165,50,0.3)">🎁</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #3</div><div class="kb-section-title" style="color:hsl(35,100%,55%)">Фейковые розыгрыши</div></div></div>
+  <p class="kb-section-intro">Играют на желании получить что-то бесплатно. Мошенники мастерски имитируют известные бренды и блогеров, делая обман неотличимым от настоящего розыгрыша.</p>
+  <div class="kb-label" style="color:hsl(35,100%,55%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. «Оплати доставку»</b><br><p>Выиграл! Оплати доставку 500 руб. Потом таможня. Потом страховка. Приз не придёт никогда — это и есть их доход.</p></div>
+  <div class="kb-block"><b>2. Кража аккаунта</b><br><p>Для получения приза нужно «войти» через соцсеть на стороннем сайте. Это фишинг — мошенники получают твой аккаунт.</p></div>
+  <div class="kb-block"><b>3. Сбор данных</b><br><p>Заполни форму: имя, телефон, адрес, данные карты. Продают или используют для других схем — например, звонков от «банка».</p></div>
+  <div class="kb-block"><b>4. Фейковые блогеры</b><br><p>Аккаунт-копия популярного блогера объявляет розыгрыш. Проверь: найди официальный аккаунт через поиск — есть ли там этот розыгрыш?</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">📊 СТАТИСТИКА</div><p>Подростки 13–17 лет — самая частая жертва. Средние потери: 500–5000 рублей. Таргет: TikTok, ВКонтакте, Telegram.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Девочка «выиграла» AirPods в TikTok. Аккаунт блогера — создан 5 дней назад. Оплатила «доставку» 800 руб + «таможню» 1200 руб. Аккаунт исчез.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(255,165,50,0.3);background:rgba(255,165,50,0.05)"><div class="kb-label" style="color:hsl(35,100%,55%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(255,165,50,0.2);color:hsl(35,100%,55%)">✓</div>Проверяй дату создания аккаунта организатора</li><li><div class="kb-check" style="background:rgba(255,165,50,0.2);color:hsl(35,100%,55%)">✓</div>Настоящий розыгрыш не просит денег за доставку</li><li><div class="kb-check" style="background:rgba(255,165,50,0.2);color:hsl(35,100%,55%)">✓</div>Загугли название розыгрыша + «развод»</li><li><div class="kb-check" style="background:rgba(255,165,50,0.2);color:hsl(35,100%,55%)">✓</div>Официальные розыгрыши — только на верифицированных аккаунтах</li><li><div class="kb-check" style="background:rgba(255,165,50,0.2);color:hsl(35,100%,55%)">✓</div>Написали в личку «ты выиграл» — это обман</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(255,165,50,0.2);background:rgba(255,165,50,0.05)"><span style="font-size:22px">😂</span>«Ты 1000-й посетитель! Забери iPhone!» — Я и мои 999 других вкладок 💀</div></div>
+
+  <!-- SECTION 4 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(220,60,60,0.15);border:1.5px solid rgba(220,60,60,0.3)">🦠</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #4</div><div class="kb-section-title" style="color:hsl(0,85%,60%)">Вредоносное ПО</div></div></div>
+  <p class="kb-section-intro">Программы, работающие тайно и наносящие вред: крадут пароли, блокируют файлы, следят за активностью. Школьники уязвимы, потому что ищут читы, моды и бесплатные версии платных программ.</p>
+  <div class="kb-label" style="color:hsl(0,85%,60%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. Трояны и стилеры паролей</b><br><p>Притворяются полезной программой, внутри — вредоносный код. Стилеры за секунды собирают все пароли из браузера и отправляют хакеру.</p></div>
+  <div class="kb-block"><b>2. Вирусы-вымогатели</b><br><p>Шифруют все файлы и требуют деньги за ключ. Даже после оплаты ключ могут не дать. Единственная защита — резервные копии в облаке.</p></div>
+  <div class="kb-block"><b>3. Скрытые майнеры</b><br><p>Используют мощность твоего компьютера для добычи криптовалюты. Устройство тормозит, греется, быстро садится батарея. Часто прячутся в читах для игр.</p></div>
+  <div class="kb-block"><b>4. Шпионские расширения</b><br><p>Запрашивают доступ «ко всем сайтам» и передают данные третьим лицам: посещения, вводимые данные, автозаполнение.</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(0,85%,60%)">📊 СТАТИСТИКА</div><p>Каждый день — 450 000 новых вредоносных программ. 60% заражений у подростков — через читы, моды и торренты.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(0,85%,60%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Старшеклассник скачал «читы» для шутера. Чит не работал, но через неделю взломали ВКонтакте, Steam и почту — стилер собрал все пароли.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(220,60,60,0.3);background:rgba(220,60,60,0.05)"><div class="kb-label" style="color:hsl(0,85%,60%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(220,60,60,0.2);color:hsl(0,85%,60%)">✓</div>Скачивай только с официальных сайтов</li><li><div class="kb-check" style="background:rgba(220,60,60,0.2);color:hsl(0,85%,60%)">✓</div>Читы и взломанные программы — почти всегда малварь</li><li><div class="kb-check" style="background:rgba(220,60,60,0.2);color:hsl(0,85%,60%)">✓</div>Используй антивирус (Windows Defender работает)</li><li><div class="kb-check" style="background:rgba(220,60,60,0.2);color:hsl(0,85%,60%)">✓</div>Проверяй файлы на VirusTotal.com перед запуском</li><li><div class="kb-check" style="background:rgba(220,60,60,0.2);color:hsl(0,85%,60%)">✓</div>Делай резервные копии файлов в облаке</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(220,60,60,0.2);background:rgba(220,60,60,0.05)"><span style="font-size:22px">😂</span>Скачал «бесплатный Minecraft» с торрента. Майнкрафт не запустился. Но что-то запустилось... 💀</div></div>
+
+  <!-- SECTION 5 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(200,80,200,0.15);border:1.5px solid rgba(200,80,200,0.3)">😰</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #5</div><div class="kb-section-title" style="color:hsl(300,70%,60%)">Кибербуллинг</div></div></div>
+  <p class="kb-section-intro">Систематическое преследование через интернет. В отличие от обычной травли — не заканчивается дома, продолжается 24/7. Направлен не на данные, а на личность человека.</p>
+  <div class="kb-label" style="color:hsl(300,70%,60%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. Публичное унижение и хейт-штормы</b><br><p>Группа атакует человека в комментариях, массово оскорбляет. Жертва чувствует себя беспомощной против толпы.</p></div>
+  <div class="kb-block"><b>2. Доксинг</b><br><p>Публикуют личные данные: адрес, школу, телефон, личные фото. Цель — вызвать стыд или создать реальную угрозу безопасности.</p></div>
+  <div class="kb-block"><b>3. Фейковые аккаунты</b><br><p>Создают аккаунт с именем и фото жертвы, публикуют от её имени компрометирующий контент.</p></div>
+  <div class="kb-block"><b>4. Шантаж (сексторция)</b><br><p>Получают личные фото и угрожают опубликовать. Выполнение требований НЕ останавливает — требуют больше. Нужно сразу рассказать взрослым и заблокировать.</p></div>
+  <div class="kb-block"><b>5. Травля в играх</b><br><p>Намеренное вредительство, оскорбления в чате, создание группировок против одного игрока. «Это просто игра» — не оправдание, вред реален.</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(300,70%,60%)">📊 СТАТИСТИКА</div><p>Каждый третий подросток в России сталкивался с кибербуллингом. 70% жертв не рассказывают взрослым.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(300,70%,60%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Восьмиклассница поссорилась с подругами. Те создали фейковый аккаунт с её фото и чат «против неё» на весь класс. Помогло обращение к классному руководителю.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(200,80,200,0.3);background:rgba(200,80,200,0.05)"><div class="kb-label" style="color:hsl(300,70%,60%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Не отвечай агрессорам — любая реакция провоцирует продолжение</li><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Делай скриншоты — это доказательства</li><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Блокируй и жалуйся через кнопку «Пожаловаться»</li><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Расскажи взрослому которому доверяешь</li><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Закрой аккаунт: только друзья видят посты и могут писать</li><li><div class="kb-check" style="background:rgba(200,80,200,0.2);color:hsl(300,70%,60%)">✓</div>Серьёзные угрозы и шантаж — это уголовные преступления, можно обратиться в полицию</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(200,80,200,0.2);background:rgba(200,80,200,0.05)"><span style="font-size:22px">😂</span>Агрессор в интернете: ты никто. Кнопка «Заблокировать»: а вот и нет 🚫</div></div>
+
+  <!-- SECTION 6 -->
+  <div class="kb-section"><div class="kb-section-head"><div class="kb-section-icon" style="background:rgba(150,80,255,0.15);border:1.5px solid rgba(150,80,255,0.3)">🎮</div><div><div class="kb-section-num">ПОДРОБНЫЙ РАЗБОР · УГРОЗА #6</div><div class="kb-section-title" style="color:hsl(270,80%,65%)">Скам в играх</div></div></div>
+  <p class="kb-section-intro">Мошенничество внутри онлайн-игр. Виртуальные предметы имеют реальную ценность — и мошенники давно освоили это пространство с десятками схем обмана.</p>
+  <div class="kb-label" style="color:hsl(270,80%,65%)">⚡ КАК ЭТО ПРОИСХОДИТ</div>
+  <div class="kb-block"><b>1. Трейд-скам</b><br><p>В последний момент обмена один предмет незаметно подменяется на дешёвый. Всегда внимательно проверяй каждый предмет перед подтверждением.</p></div>
+  <div class="kb-block"><b>2. Фейковый буст</b><br><p>Предлагают прокачать аккаунт — нужен логин и пароль. После получения данных меняют пароль и угоняют аккаунт.</p></div>
+  <div class="kb-block"><b>3. Фейковые торговые площадки</b><br><p>Сайты для «дешёвой» покупки игровой валюты. После оплаты ничего не приходит — сайт исчезает.</p></div>
+  <div class="kb-block"><b>4. Генераторы валюты</b><br><p>«Введи ник — получи 10 000 робаксов!» Крадут данные аккаунта или заставляют оплатить смс-рассылки. Бесплатной игровой валюты не существует.</p></div>
+  <div class="kb-grid2"><div class="kb-block"><div class="kb-label" style="color:hsl(270,80%,65%)">📊 СТАТИСТИКА</div><p>12 млн игроков ежегодно страдают от игрового мошенничества. Средняя стоимость украденного инвентаря: 3 000–50 000 руб.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(270,80%,65%)">📖 РЕАЛЬНЫЙ СЛУЧАЙ</div><p>Девятиклассник собирал скины в CS2 несколько лет. В окне обмена нож подменили в последнюю секунду. Потерял предметы на 15 000 руб.</p></div></div>
+  <div class="kb-checklist" style="border:1px solid rgba(150,80,255,0.3);background:rgba(150,80,255,0.05)"><div class="kb-label" style="color:hsl(270,80%,65%)">✅ ЧЕКЛИСТ ЗАЩИТЫ</div><ul><li><div class="kb-check" style="background:rgba(150,80,255,0.2);color:hsl(270,80%,65%)">✓</div>Торгуй только через официальную площадку игры</li><li><div class="kb-check" style="background:rgba(150,80,255,0.2);color:hsl(270,80%,65%)">✓</div>Никогда не давай пароль от аккаунта никому</li><li><div class="kb-check" style="background:rgba(150,80,255,0.2);color:hsl(270,80%,65%)">✓</div>Проверяй каждый предмет в окне обмена до нажатия «принять»</li><li><div class="kb-check" style="background:rgba(150,80,255,0.2);color:hsl(270,80%,65%)">✓</div>Генераторы валюты — всегда мошенничество или вирус</li><li><div class="kb-check" style="background:rgba(150,80,255,0.2);color:hsl(270,80%,65%)">✓</div>Включи Steam Guard или аналог — даёт время заметить подмену</li></ul></div>
+  <div class="kb-meme" style="border:1px solid rgba(150,80,255,0.2);background:rgba(150,80,255,0.05)"><span style="font-size:22px">😂</span>«Друг» в Minecraft: дай доступ к аккаунту, подарю алмазы. Аккаунт через 5 минут: 🔒</div></div>
 
   <!-- DISCLAIMER -->
-  <div class="kb-disclaimer">
-    <div style="font-size:28px;margin-top:2px">⚠️</div>
-    <div>
-      <h3>Это не весь список угроз</h3>
-      <p>На этом сайте собраны лишь <strong style="color:#fff">три наиболее распространённые угрозы</strong>. В реальности видов мошенничества гораздо больше: скам в играх, вредоносные программы, кража личности, кибербуллинг и многое другое. Будь внимателен — здоровый скептицизм в сети никогда не лишний.</p>
-    </div>
-  </div>
+  <div class="kb-disclaimer"><div style="font-size:28px;margin-top:2px">⚠️</div><div><h3>Это не весь список угроз</h3><p>На этом сайте собраны <strong style="color:#fff">шесть наиболее распространённых угроз</strong>. В реальности опасностей гораздо больше. Будь внимателен — здоровый скептицизм в сети никогда не лишний.</p></div></div>
 
   <!-- TIPS -->
   <div style="background:#111;border:1px solid #222;border-radius:24px;padding:40px;margin-bottom:32px">
     <div class="kb-tips-title">Золотые правила безопасности</div>
-    <div class="kb-tips-sub">ЗАПОМНИ — И БУДЕШЬ В БЕЗОПАСНОСТИ 99% ВРЕМЕНИ</div>
+    <div class="kb-tips-sub">НАЖМИ — УЗНАЙ ПОДРОБНЕЕ</div>
     <div class="kb-tips-grid">
       <div class="kb-tip"><div class="kb-tip-emoji">🔑</div><p>Уникальный пароль для каждого сайта</p></div>
       <div class="kb-tip"><div class="kb-tip-emoji">📱</div><p>Двухфакторная аутентификация везде</p></div>
       <div class="kb-tip"><div class="kb-tip-emoji">🔍</div><p>Проверяй адрес сайта перед вводом данных</p></div>
       <div class="kb-tip"><div class="kb-tip-emoji">🚨</div><p>Не верь «срочным» сообщениям о призах</p></div>
+      <div class="kb-tip"><div class="kb-tip-emoji">🛡️</div><p>Не скачивай файлы с незнакомых сайтов</p></div>
+      <div class="kb-tip"><div class="kb-tip-emoji">🔒</div><p>Настрой приватность в соцсетях</p></div>
+      <div class="kb-tip"><div class="kb-tip-emoji">🧠</div><p>Останови себя перед тем как действовать</p></div>
     </div>
   </div>
 
@@ -726,51 +694,19 @@ const Index = () => {
     <div class="kb-footer-title">Знание —<br>лучшая защита.</div>
     <p>Мошенники рассчитывают на то, что ты не знаешь их приёмы.</p>
     <p>Поделись этим сайтом с другом — и у мошенников станет на одну жертву меньше.</p>
-    <div class="kb-authors">
-      <div class="kb-author"><div class="kb-author-avatar">👤</div><div><div class="kb-author-name">Имя Фамилия</div><div class="kb-author-role">Автор 1</div><div class="kb-author-grade">10 класс</div></div></div>
-      <div class="kb-author"><div class="kb-author-avatar">👤</div><div><div class="kb-author-name">Имя Фамилия</div><div class="kb-author-role">Автор 2</div><div class="kb-author-grade">10 класс</div></div></div>
-    </div>
+    <p style="font-style:italic;margin-top:24px">Это мой учебный проект за 10 класс — не судите строго 😅</p>
+    <div class="kb-authors"><div class="kb-author"><div class="kb-author-avatar">👤</div><div><div class="kb-author-name">Jaster Molbino</div><div class="kb-author-role">Автор</div><div class="kb-author-grade">10 класс</div></div></div></div>
     <div class="kb-copy">2026 КиберЩиток · Учебный проект 10 класс</div>
   </div>
 </div>
 
 <!-- MODALS -->
-<div id="m1" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m1')">
-  <div class="kb-modal" style="border-top:3px solid hsl(220,90%,60%)">
-    <button class="kb-modal-close" onclick="closeModal('m1')">×</button>
-    <div style="font-size:44px;margin-bottom:12px">🎣</div>
-    <h2 style="color:hsl(220,90%,60%)">Фишинг</h2>
-    <div class="kb-modal-sub">КРАДУТ ДАННЫЕ ЧЕРЕЗ ЛОЖЬ</div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">⚡ КАК РАБОТАЕТ</div><p>Мошенники создают фейковые сайты — точь-в-точь как ВКонтакте, Сбербанк или игровой магазин. Ты вводишь логин и пароль — и они уходят к злоумышленнику.</p></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Странный адрес сайта (vkontaktee.ru вместо vk.com)</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Письмо с угрозой «Аккаунт заблокируют!»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят срочно войти по ссылке из сообщения</li></ul></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Всегда проверяй адрес сайта в строке браузера. Не переходи по ссылкам из сообщений незнакомцев. Включи двухфакторку.</p></div>
-    <div class="kb-meme" style="border:1px solid hsl(220,90%,60%,0.3);background:hsl(220,90%,60%,0.08)"><span style="font-size:22px">😂</span>Когда зашёл по ссылке из письма «ВЫ ВЫИГРАЛИ АЙФОН»... 💀</div>
-  </div>
-</div>
-<div id="m2" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m2')">
-  <div class="kb-modal" style="border-top:3px solid hsl(147,87%,52%)">
-    <button class="kb-modal-close" onclick="closeModal('m2')">×</button>
-    <div style="font-size:44px;margin-bottom:12px">🔓</div>
-    <h2 style="color:hsl(147,87%,52%)">Взлом аккаунтов</h2>
-    <div class="kb-modal-sub">ЗАХВАТЫВАЮТ ТВОЙ ПРОФИЛЬ</div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">⚡ КАК РАБОТАЕТ</div><p>Хакеры используют слабые пароли, утечки данных с других сайтов или специальные программы-переборщики.</p></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ В аккаунте появились странные действия</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Друзья говорят, что ты пишешь им странное</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Не можешь войти — пароль вдруг не подходит</li></ul></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Используй длинные уникальные пароли для каждого сайта. Включи двухфакторную аутентификацию. Используй менеджер паролей.</p></div>
-    <div class="kb-meme" style="border:1px solid hsl(147,87%,52%,0.3);background:hsl(147,87%,52%,0.08)"><span style="font-size:22px">😂</span>Мой пароль: «пароль123». Хакер: 😂🎉</div>
-  </div>
-</div>
-<div id="m3" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m3')">
-  <div class="kb-modal" style="border-top:3px solid hsl(35,100%,55%)">
-    <button class="kb-modal-close" onclick="closeModal('m3')">×</button>
-    <div style="font-size:44px;margin-bottom:12px">🎁</div>
-    <h2 style="color:hsl(35,100%,55%)">Фейковые розыгрыши</h2>
-    <div class="kb-modal-sub">ОБЕЩАЮТ ПРИЗЫ — БЕРУТ ДАННЫЕ</div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">⚡ КАК РАБОТАЕТ</div><p>В соцсетях появляются посты «Подпишись и выиграй PlayStation / iPhone!». На самом деле цель — собрать данные, деньги «за доставку» или доступ к аккаунту.</p></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Победителей выбирают «прямо сейчас»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят скинуть деньги за «доставку приза»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Аккаунт организатора создан неделю назад</li></ul></div>
-    <div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Проверяй аккаунт организатора. Никогда не плати за «доставку». Настоящие розыгрыши не требуют данных карты.</p></div>
-    <div class="kb-meme" style="border:1px solid hsl(35,100%,55%,0.3);background:hsl(35,100%,55%,0.08)"><span style="font-size:22px">😂</span>«Ты 1000-й посетитель! Забери iPhone!» — Я и мои 999 других вкладок 💀</div>
-  </div>
-</div>
+<div id="m1" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m1')"><div class="kb-modal" style="border-top:3px solid hsl(220,90%,60%)"><button class="kb-modal-close" onclick="closeModal('m1')">×</button><div style="font-size:44px;margin-bottom:12px">🎣</div><h2 style="color:hsl(220,90%,60%)">Фишинг</h2><div class="kb-modal-sub">КРАДУТ ДАННЫЕ ЧЕРЕЗ ЛОЖЬ</div><div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">⚡ КАК РАБОТАЕТ</div><p>Мошенники создают фейковые сайты — точь-в-точь как ВКонтакте или Сбербанк. Ты вводишь логин и пароль — они уходят злоумышленнику.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Странный адрес сайта (vkontaktee.ru вместо vk.com)</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Письмо с угрозой «Аккаунт заблокируют!»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят срочно войти по ссылке из сообщения</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Сайт выглядит чуть иначе, чем обычно</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(220,90%,60%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Проверяй адрес сайта. Не переходи по ссылкам из сообщений. Включи двухфакторку. Сохрани важные сайты в закладки.</p></div><div class="kb-meme" style="border:1px solid rgba(100,150,255,0.3);background:rgba(100,150,255,0.08)"><span style="font-size:22px">😂</span>Когда зашёл по ссылке «ВЫ ВЫИГРАЛИ АЙФОН»... 💀</div></div></div>
+<div id="m2" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m2')"><div class="kb-modal" style="border-top:3px solid hsl(147,87%,52%)"><button class="kb-modal-close" onclick="closeModal('m2')">×</button><div style="font-size:44px;margin-bottom:12px">🔓</div><h2 style="color:hsl(147,87%,52%)">Взлом аккаунтов</h2><div class="kb-modal-sub">ЗАХВАТЫВАЮТ ТВОЙ ПРОФИЛЬ</div><div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">⚡ КАК РАБОТАЕТ</div><p>Слабые пароли, утечки баз данных, социальная инженерия, вредоносные расширения браузера.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Странные действия в аккаунте</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Друзья говорят о странных сообщениях от тебя</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Пароль вдруг не подходит</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Вход с незнакомых устройств в истории</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(147,87%,52%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Уникальные пароли + менеджер Bitwarden. Двухфакторная аутентификация. Проверь утечки на haveibeenpwned.com.</p></div><div class="kb-meme" style="border:1px solid rgba(50,220,120,0.3);background:rgba(50,220,120,0.08)"><span style="font-size:22px">😂</span>Мой пароль: «пароль123». Хакер: 😂🎉</div></div></div>
+<div id="m3" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m3')"><div class="kb-modal" style="border-top:3px solid hsl(35,100%,55%)"><button class="kb-modal-close" onclick="closeModal('m3')">×</button><div style="font-size:44px;margin-bottom:12px">🎁</div><h2 style="color:hsl(35,100%,55%)">Фейковые розыгрыши</h2><div class="kb-modal-sub">ОБЕЩАЮТ ПРИЗЫ — БЕРУТ ДАННЫЕ</div><div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">⚡ КАК РАБОТАЕТ</div><p>«Оплати доставку», кража аккаунта через фишинг, сбор личных данных, фейковые аккаунты блогеров.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Победителей выбирают «прямо сейчас»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят деньги за доставку</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Аккаунт создан неделю назад</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Написали в личку «ты выиграл»</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(35,100%,55%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Проверяй дату аккаунта. Никогда не плати за «доставку». Загугли название + «развод».</p></div><div class="kb-meme" style="border:1px solid rgba(255,165,50,0.3);background:rgba(255,165,50,0.08)"><span style="font-size:22px">😂</span>«Ты 1000-й посетитель! Забери iPhone!» 💀</div></div></div>
+<div id="m4" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m4')"><div class="kb-modal" style="border-top:3px solid hsl(0,85%,60%)"><button class="kb-modal-close" onclick="closeModal('m4')">×</button><div style="font-size:44px;margin-bottom:12px">🦠</div><h2 style="color:hsl(0,85%,60%)">Вредоносное ПО</h2><div class="kb-modal-sub">ПРОГРАММЫ-ШПИОНЫ НА УСТРОЙСТВЕ</div><div class="kb-block"><div class="kb-label" style="color:hsl(0,85%,60%)">⚡ КАК РАБОТАЕТ</div><p>Трояны крадут пароли, шифровальщики блокируют файлы, майнеры используют твой компьютер, шпионские расширения следят за действиями.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(0,85%,60%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Устройство резко замедлилось</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Появилась лишняя реклама</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Незнакомые программы в списке установленных</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Аккаунты взламывают без видимой причины</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(0,85%,60%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Скачивай только с официальных сайтов. Проверяй файлы на VirusTotal. Не отключай антивирус.</p></div><div class="kb-meme" style="border:1px solid rgba(220,60,60,0.3);background:rgba(220,60,60,0.08)"><span style="font-size:22px">😂</span>Скачал «бесплатный Minecraft». Майнкрафт не запустился. Но что-то запустилось... 💀</div></div></div>
+<div id="m5" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m5')"><div class="kb-modal" style="border-top:3px solid hsl(300,70%,60%)"><button class="kb-modal-close" onclick="closeModal('m5')">×</button><div style="font-size:44px;margin-bottom:12px">😰</div><h2 style="color:hsl(300,70%,60%)">Кибербуллинг</h2><div class="kb-modal-sub">ТРАВЛЯ И ДАВЛЕНИЕ В ИНТЕРНЕТЕ</div><div class="kb-block"><div class="kb-label" style="color:hsl(300,70%,60%)">⚡ КАК РАБОТАЕТ</div><p>Публичное унижение, доксинг, фейковые аккаунты, шантаж личными фото, травля в играх. Продолжается 24/7.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(300,70%,60%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Массовые оскорбления в комментариях</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Личные данные публикуются без разрешения</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Фейковый аккаунт от твоего имени</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Угрозы и шантаж в личных сообщениях</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(300,70%,60%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Не отвечай, делай скриншоты, блокируй и жалуйся. Расскажи взрослому. Серьёзные угрозы — это уголовное преступление.</p></div><div class="kb-meme" style="border:1px solid rgba(200,80,200,0.3);background:rgba(200,80,200,0.08)"><span style="font-size:22px">😂</span>Агрессор: ты никто. Кнопка «Заблокировать»: а вот и нет 🚫</div></div></div>
+<div id="m6" class="kb-modal-overlay" onclick="if(event.target===this)closeModal('m6')"><div class="kb-modal" style="border-top:3px solid hsl(270,80%,65%)"><button class="kb-modal-close" onclick="closeModal('m6')">×</button><div style="font-size:44px;margin-bottom:12px">🎮</div><h2 style="color:hsl(270,80%,65%)">Скам в играх</h2><div class="kb-modal-sub">ОБМАНЫВАЮТ ПРЯМО В ИГРОВОМ ЧАТЕ</div><div class="kb-block"><div class="kb-label" style="color:hsl(270,80%,65%)">⚡ КАК РАБОТАЕТ</div><p>Трейд-скам (подмена предметов), фейковый буст (кража аккаунта), фейковые торговые площадки, генераторы валюты.</p></div><div class="kb-block"><div class="kb-label" style="color:hsl(270,80%,65%)">👁 ПРИЗНАКИ</div><ul style="list-style:none"><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Незнакомец предлагает слишком выгодный обмен</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят перейти на сторонний сайт</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Просят данные аккаунта для «буста»</li><li style="color:#aaa;font-size:13px;padding:4px 0">▸ Торопят с решением</li></ul></div><div class="kb-block"><div class="kb-label" style="color:hsl(270,80%,65%)">🛡 КАК ЗАЩИТИТЬСЯ</div><p>Торгуй только через официальную площадку. Никогда не давай пароль. Проверяй каждый предмет в обмене.</p></div><div class="kb-meme" style="border:1px solid rgba(150,80,255,0.3);background:rgba(150,80,255,0.08)"><span style="font-size:22px">😂</span>«Друг»: дай аккаунт, подарю алмазы. Аккаунт через 5 минут: 🔒</div></div></div>
 
 <script>
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
