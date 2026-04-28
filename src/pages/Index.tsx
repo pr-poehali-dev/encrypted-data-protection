@@ -694,7 +694,8 @@ const Index = () => {
     <div class="kb-footer-title">Знание —<br>лучшая защита.</div>
     <p>Мошенники рассчитывают на то, что ты не знаешь их приёмы.</p>
     <p>Поделись этим сайтом с другом — и у мошенников станет на одну жертву меньше.</p>
-    <p style="font-style:italic;margin-top:24px">Это мой учебный проект за 10 класс — не судите строго 😅</p>
+    <p style="font-style:italic;margin-top:24px;color:#aaa;font-size:13px">Это мой учебный проект за 10 класс — не судите строго 😅</p>
+    <div style="font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase;margin:24px 0 12px">АВТОР ПРОЕКТА</div>
     <div class="kb-authors"><div class="kb-author"><div class="kb-author-avatar">👤</div><div><div class="kb-author-name">Jaster Molbino</div><div class="kb-author-role">Автор</div><div class="kb-author-grade">10 класс</div></div></div></div>
     <div class="kb-copy">2026 КиберЩиток · Учебный проект 10 класс</div>
   </div>
