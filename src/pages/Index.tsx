@@ -291,6 +291,7 @@ const Index = () => {
   .kb-logo span{color:#00cfff}
   .kb-nav-btn{background:#00cfff;color:#000;border:none;border-radius:999px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:1px;transition:transform .2s,box-shadow .2s}
   .kb-nav-btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(0,207,255,.5)}
+  [data-spline-watermark],a[href*="spline.design"][target="_blank"],canvas+a[target="_blank"],.spline-watermark,a[href="https://spline.design"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;width:0!important;height:0!important}
   .kb-intro{background:#111;border:1px solid #222;border-radius:24px;padding:32px;display:flex;gap:20px;align-items:flex-start;margin-bottom:32px}
   .kb-intro h2{color:#00cfff;font-size:20px;margin-bottom:8px}
   .kb-intro p{color:#aaa;font-size:13px;line-height:1.7}
