@@ -276,13 +276,21 @@ const Index = () => {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>КиберЩиток</title>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#000;color:#fff;font-family:'IBM Plex Mono',monospace}
   .kb-wrap{max-width:1100px;margin:0 auto;padding:40px 20px}
-  .kb-hero{text-align:center;padding:80px 20px 60px}
-  .kb-hero h1{font-size:clamp(48px,8vw,96px);font-weight:800;letter-spacing:4px;line-height:1.1;color:#000;-webkit-text-stroke:4px #fff;paint-order:stroke fill}
-  .kb-hero p{color:#aaa;font-size:14px;letter-spacing:3px;margin-top:16px}
+  .kb-hero{position:relative;height:600px;overflow:hidden;margin-bottom:0}
+  .kb-hero spline-viewer{position:absolute;inset:0;width:100%;height:100%}
+  .kb-hero-text{position:absolute;top:50%;left:40px;transform:translateY(-50%);z-index:10}
+  .kb-hero-text h1{font-size:clamp(48px,8vw,96px);font-weight:800;letter-spacing:4px;line-height:1.1;color:#000;-webkit-text-stroke:4px #fff;paint-order:stroke fill}
+  .kb-hero-text p{color:#fff;font-size:13px;letter-spacing:3px;margin-top:12px}
+  .kb-hero-nav{position:absolute;top:20px;left:40px;right:40px;display:flex;align-items:center;justify-content:space-between;z-index:20}
+  .kb-logo{font-size:18px;font-weight:800;letter-spacing:4px;color:#fff}
+  .kb-logo span{color:#00cfff}
+  .kb-nav-btn{background:#00cfff;color:#000;border:none;border-radius:999px;padding:10px 22px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:1px;transition:transform .2s,box-shadow .2s}
+  .kb-nav-btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(0,207,255,.5)}
   .kb-intro{background:#111;border:1px solid #222;border-radius:24px;padding:32px;display:flex;gap:20px;align-items:flex-start;margin-bottom:32px}
   .kb-intro h2{color:#00cfff;font-size:20px;margin-bottom:8px}
   .kb-intro p{color:#aaa;font-size:13px;line-height:1.7}
@@ -346,8 +354,15 @@ const Index = () => {
 
   <!-- HERO -->
   <div class="kb-hero">
-    <h1>КИБЕР<br>ЩИТОК</h1>
-    <p>УЧИМСЯ ЗАЩИЩАТЬСЯ В ИНТЕРНЕТЕ — ПРОСТО И КРУТО</p>
+    <div class="kb-hero-nav">
+      <div class="kb-logo">КИБЕР<span>ЩИТОК</span></div>
+      <button class="kb-nav-btn" onclick="document.getElementById('threats').scrollIntoView({behavior:'smooth'})">Узнать угрозы ↗</button>
+    </div>
+    <spline-viewer url="https://prod.spline.design/l8gr6AhxxCqDIdBx/scene.splinecode"></spline-viewer>
+    <div class="kb-hero-text">
+      <h1>КИБЕР<br>ЩИТОК</h1>
+      <p>УЧИМСЯ ЗАЩИЩАТЬСЯ<br>В ИНТЕРНЕТЕ — ПРОСТО И КРУТО</p>
+    </div>
   </div>
 
   <!-- INTRO -->
