@@ -435,6 +435,19 @@ const Index = () => {
           ))}
         </section>
 
+        {/* Disclaimer */}
+        <section className="mx-4 md:mx-0 mb-8 rounded-4xl border border-border bg-card px-8 py-8 flex gap-5 items-start">
+          <div className="text-3xl mt-1">⚠️</div>
+          <div>
+            <h3 className="text-base font-bold text-foreground mb-2" style={{ fontFamily: "var(--font-montserrat)" }}>
+              Это не весь список угроз
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              На этом сайте собраны лишь <span className="text-foreground font-semibold">три наиболее распространённые угрозы</span>, с которыми чаще всего сталкиваются школьники и молодёжь в интернете. В реальности видов мошенничества гораздо больше: скам в играх, вредоносные программы, кража личности, кибербуллинг и многое другое. Будь внимателен — и помни, что здоровый скептицизм в сети никогда не лишний.
+            </p>
+          </div>
+        </section>
+
         {/* Quick tips */}
         <section
           className="relative rounded-4xl py-12 mx-4 md:mx-0 mb-8 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border"
