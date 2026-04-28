@@ -21,6 +21,7 @@ const threats = [
     ],
     howToProtect: "Всегда проверяй адрес сайта в строке браузера. Не переходи по ссылкам из сообщений незнакомцев. Включи двухфакторку.",
     meme: "Когда зашёл по ссылке из письма «ВЫ ВЫИГРАЛИ АЙФОН»... 💀",
+    memeImg: "https://cdn.poehali.dev/projects/40c783e4-8e7c-494d-b1c8-0c99a6416e31/files/66d58106-97de-465c-ad5f-7a41beedae2e.jpg",
     detail: {
       intro: "Фишинг — одна из самых распространённых угроз в интернете. Само слово происходит от английского fishing (рыбалка): мошенники забрасывают «удочку» и ждут, пока жертва сама клюнет. Только вместо рыбы они ловят твои пароли, номера карт и личные данные.",
       howDeep: [
@@ -62,6 +63,7 @@ const threats = [
     ],
     howToProtect: "Используй длинные уникальные пароли для каждого сайта. Включи двухфакторную аутентификацию. Используй менеджер паролей.",
     meme: "Мой пароль: «пароль123». Хакер: 😂🎉",
+    memeImg: "https://cdn.poehali.dev/projects/40c783e4-8e7c-494d-b1c8-0c99a6416e31/files/ed8d2f91-0e38-47f9-b1a1-e6196f811642.jpg",
     detail: {
       intro: "Взлом аккаунтов — это несанкционированный доступ к твоему профилю в соцсети, игре, почте или другом сервисе. После взлома мошенник может писать от твоего имени, красть деньги, шантажировать или просто уничтожить всё что ты годами собирал.",
       howDeep: [
@@ -103,6 +105,7 @@ const threats = [
     ],
     howToProtect: "Проверяй аккаунт организатора (дата создания, подписчики). Никогда не плати за «доставку приза». Настоящие розыгрыши не требуют данных карты.",
     meme: "«Ты 1000-й посетитель! Забери iPhone!» — Я и мои 999 других вкладок 💀",
+    memeImg: "https://cdn.poehali.dev/projects/40c783e4-8e7c-494d-b1c8-0c99a6416e31/files/11fa3b72-914b-43b8-a208-0df3400eb781.jpg",
     detail: {
       intro: "Фейковые розыгрыши — один из самых «вкусных» видов мошенничества, потому что они играют на желании получить что-то бесплатно. Бесплатный iPhone, PlayStation, деньги на карту — звучит заманчиво. Но за каждым таким предложением скрывается ловушка.",
       howDeep: [
@@ -251,12 +254,15 @@ function ThreatModal({ threat, onClose }: { threat: Threat; onClose: () => void 
               <p className="text-foreground text-sm leading-relaxed">{threat.howToProtect}</p>
             </div>
 
-            <div
-              className="rounded-2xl px-5 py-4 border text-sm font-mono flex items-center gap-3"
-              style={{ borderColor: threat.color + "44", background: threat.color + "11" }}
-            >
-              <span className="text-2xl">😂</span>
-              <span className="text-muted-foreground italic">{threat.meme}</span>
+            <div className="rounded-2xl overflow-hidden border" style={{ borderColor: threat.color + "44" }}>
+              <img src={threat.memeImg} alt="мем" className="w-full object-cover max-h-64" />
+              <div
+                className="px-5 py-3 text-sm font-mono flex items-center gap-3"
+                style={{ background: threat.color + "11" }}
+              >
+                <span className="text-xl">😂</span>
+                <span className="text-muted-foreground italic">{threat.meme}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -424,12 +430,15 @@ const Index = () => {
               </div>
 
               {/* Meme */}
-              <div
-                className="mt-4 rounded-2xl px-5 py-4 border text-sm font-mono flex items-center gap-3"
-                style={{ borderColor: threat.color + "33", background: threat.color + "08" }}
-              >
-                <span className="text-2xl">😂</span>
-                <span className="text-muted-foreground italic">{threat.meme}</span>
+              <div className="mt-4 rounded-2xl overflow-hidden border" style={{ borderColor: threat.color + "33" }}>
+                <img src={threat.memeImg} alt="мем" className="w-full object-cover max-h-72" />
+                <div
+                  className="px-5 py-3 text-sm font-mono flex items-center gap-3"
+                  style={{ background: threat.color + "08" }}
+                >
+                  <span className="text-xl">😂</span>
+                  <span className="text-muted-foreground italic">{threat.meme}</span>
+                </div>
               </div>
             </div>
           ))}
