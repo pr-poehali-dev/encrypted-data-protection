@@ -401,6 +401,234 @@ const tips = [
   },
 ]
 
+const quizQuestions = [
+  {
+    q: "Ты получил сообщение от друга: «Зайди срочно на этот сайт, там твои фото!» Ссылка ведёт на vk-photos.ru. Что делать?",
+    options: [
+      "Перейти по ссылке и посмотреть",
+      "Не переходить — это фишинг. Написать другу в другом месте и уточнить",
+      "Переслать ссылку другим друзьям",
+      "Ввести логин и пароль, чтобы проверить",
+    ],
+    correct: 1,
+    explanation: "Верно! Это классический фишинг. Аккаунт друга мог быть взломан. Настоящий ВКонтакте всегда только vk.com — никаких vk-photos.ru.",
+  },
+  {
+    q: "Тебе в TikTok написали: «Поздравляем! Ты выиграл PlayStation 5! Оплати только доставку — 490 руб». Что это?",
+    options: [
+      "Настоящий розыгрыш — надо платить быстрее",
+      "Фейковый розыгрыш — настоящие призы не требуют оплаты доставки",
+      "Возможно настоящий — зависит от аккаунта",
+      "Надо спросить у родителей разрешения и заплатить",
+    ],
+    correct: 1,
+    explanation: "Правильно! Настоящий розыгрыш никогда не просит денег за доставку. Это классическая схема «аванс» — ты платишь, приз не приходит.",
+  },
+  {
+    q: "Какой из этих паролей самый надёжный?",
+    options: [
+      "qwerty123",
+      "Вася2008",
+      "Tr0ub4dor&3!kP",
+      "12345678",
+    ],
+    correct: 2,
+    explanation: "Именно! Надёжный пароль — длинный, с буквами разного регистра, цифрами и спецсимволами. Избегай имён, дат рождений и простых последовательностей.",
+  },
+  {
+    q: "Ты хочешь скачать читы для игры. Где это делать безопаснее всего?",
+    options: [
+      "На первом сайте из Google с надписью «100% работает»",
+      "На торрент-трекере",
+      "Это опасно в любом случае — читы часто содержат вирусы",
+      "На сайте с большим количеством рекламы",
+    ],
+    correct: 2,
+    explanation: "Верно! Читы — одна из главных причин заражения устройств. Они почти всегда содержат стилеры паролей или майнеры. Лучший выбор — играть честно.",
+  },
+  {
+    q: "Незнакомец в CS2 предлагает обменять твой дорогой скин на несколько его «дешёвых, но вместе дороже». В последнюю секунду один предмет изменился. Что делать?",
+    options: [
+      "Подтвердить обмен — раз уже договорились",
+      "Отменить обмен — это трейд-скам, предмет подменили",
+      "Быстро согласиться, пока не передумали",
+      "Спросить, почему предмет изменился, и всё равно согласиться",
+    ],
+    correct: 1,
+    explanation: "Правильно! Подмена предмета в последнюю секунду — классический трейд-скам. Всегда отменяй обмен если что-то изменилось. Никакой спешки.",
+  },
+  {
+    q: "Тебя начали оскорблять в комментариях несколько человек. Как правильно реагировать?",
+    options: [
+      "Отвечать на каждый комментарий и защищаться",
+      "Не отвечать, сделать скриншоты, заблокировать и пожаловаться",
+      "Удалить свой аккаунт",
+      "Попросить друзей написать в ответ",
+    ],
+    correct: 1,
+    explanation: "Верно! Ответы только подпитывают агрессоров. Правильный алгоритм: не отвечать → скриншоты → блокировка → жалоба → рассказать взрослому.",
+  },
+  {
+    q: "Как проверить, не утекли ли твои пароли в интернет?",
+    options: [
+      "Никак — это невозможно узнать",
+      "Зайти на сайт haveibeenpwned.com и ввести свою почту",
+      "Позвонить в банк",
+      "Поменять все пароли на один новый",
+    ],
+    correct: 1,
+    explanation: "Правильно! HaveIBeenPwned.com — бесплатный сервис, который проверяет вашу почту по базам утечек. Если нашлись совпадения — срочно меняй пароли на этих сервисах.",
+  },
+  {
+    q: "Что такое двухфакторная аутентификация (2FA)?",
+    options: [
+      "Два разных пароля от одного аккаунта",
+      "Дополнительный код из смс или приложения при входе",
+      "Секретный вопрос при восстановлении пароля",
+      "Антивирусная программа",
+    ],
+    correct: 1,
+    explanation: "Верно! 2FA — это второй уровень защиты. Даже зная пароль, хакер не войдёт без кода из твоего телефона. По данным Microsoft, 2FA блокирует 99,9% атак.",
+  },
+]
+
+function QuizSection() {
+  const [current, setCurrent] = useState(0)
+  const [selected, setSelected] = useState<number | null>(null)
+  const [score, setScore] = useState(0)
+  const [finished, setFinished] = useState(false)
+  const [answered, setAnswered] = useState(false)
+
+  const q = quizQuestions[current]
+
+  const handleSelect = (i: number) => {
+    if (answered) return
+    setSelected(i)
+    setAnswered(true)
+    if (i === q.correct) setScore(s => s + 1)
+  }
+
+  const handleNext = () => {
+    if (current + 1 >= quizQuestions.length) {
+      setFinished(true)
+    } else {
+      setCurrent(c => c + 1)
+      setSelected(null)
+      setAnswered(false)
+    }
+  }
+
+  const handleRestart = () => {
+    setCurrent(0)
+    setSelected(null)
+    setScore(0)
+    setFinished(false)
+    setAnswered(false)
+  }
+
+  const getResultEmoji = () => {
+    const pct = score / quizQuestions.length
+    if (pct === 1) return { emoji: "🏆", text: "Идеально! Ты настоящий эксперт по кибербезопасности", color: "hsl(147,87%,52%)" }
+    if (pct >= 0.75) return { emoji: "💪", text: "Отлично! Ты хорошо разбираешься в угрозах", color: "hsl(195,100%,50%)" }
+    if (pct >= 0.5) return { emoji: "📚", text: "Неплохо, но есть над чем поработать — перечитай разделы", color: "hsl(35,100%,55%)" }
+    return { emoji: "⚠️", text: "Нужно подучить материал — мошенники могут тебя поймать!", color: "hsl(0,85%,60%)" }
+  }
+
+  return (
+    <div className="max-w-[1200px] mx-auto px-4 mb-8">
+      <div className="rounded-4xl border border-border bg-card overflow-hidden"
+        style={{ backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`, backgroundSize: "40px 40px" }}
+      >
+        <div className="p-8 md:p-12">
+          <div className="text-center mb-8">
+            <div className="inline-block bg-primary/10 border border-primary/30 rounded-full px-4 py-1 text-xs font-mono text-primary uppercase tracking-widest mb-3">
+              Викторина
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground" style={{ fontFamily: "var(--font-montserrat)" }}>
+              Проверь себя — ты готов?
+            </h2>
+            <p className="text-muted-foreground text-sm font-mono mt-2">{quizQuestions.length} вопросов · Каждый основан на реальных угрозах</p>
+          </div>
+
+          {!finished ? (
+            <div className="max-w-2xl mx-auto">
+              {/* Progress */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs font-mono text-muted-foreground">Вопрос {current + 1} из {quizQuestions.length}</span>
+                <div className="flex-1 h-1.5 bg-border rounded-full overflow-hidden">
+                  <div className="h-full bg-primary rounded-full transition-all duration-500" style={{ width: `${((current) / quizQuestions.length) * 100}%` }} />
+                </div>
+                <span className="text-xs font-mono text-primary">{score} ✓</span>
+              </div>
+
+              {/* Question */}
+              <div className="bg-background/50 rounded-2xl p-6 border border-border mb-5">
+                <p className="text-foreground font-semibold text-base leading-relaxed">{q.q}</p>
+              </div>
+
+              {/* Options */}
+              <div className="flex flex-col gap-3 mb-5">
+                {q.options.map((opt, i) => {
+                  let style = "border border-border bg-background/30 text-foreground hover:border-primary/50 hover:bg-primary/5"
+                  if (answered) {
+                    if (i === q.correct) style = "border-2 border-green-500 bg-green-500/10 text-green-400"
+                    else if (i === selected) style = "border-2 border-red-500 bg-red-500/10 text-red-400"
+                    else style = "border border-border bg-background/20 text-muted-foreground opacity-50"
+                  }
+                  return (
+                    <button key={i} onClick={() => handleSelect(i)}
+                      className={`rounded-xl px-5 py-4 text-left text-sm font-mono transition-all duration-200 ${style} ${!answered ? "cursor-pointer" : "cursor-default"}`}
+                    >
+                      <span className="text-muted-foreground mr-3">{String.fromCharCode(65 + i)}.</span>{opt}
+                    </button>
+                  )
+                })}
+              </div>
+
+              {/* Explanation */}
+              {answered && (
+                <div className={`rounded-2xl p-5 mb-5 border ${selected === q.correct ? "border-green-500/30 bg-green-500/10" : "border-red-500/30 bg-red-500/10"}`}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-lg">{selected === q.correct ? "✅" : "❌"}</span>
+                    <span className="text-sm font-bold font-mono text-foreground">{selected === q.correct ? "Правильно!" : "Неверно"}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{q.explanation}</p>
+                </div>
+              )}
+
+              {answered && (
+                <button onClick={handleNext}
+                  className="w-full bg-primary text-primary-foreground rounded-full py-3 font-mono font-bold text-sm hover:scale-[1.02] hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all duration-300"
+                >
+                  {current + 1 >= quizQuestions.length ? "Посмотреть результат →" : "Следующий вопрос →"}
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="max-w-lg mx-auto text-center">
+              {(() => { const r = getResultEmoji(); return (
+                <>
+                  <div className="text-7xl mb-4">{r.emoji}</div>
+                  <div className="text-5xl font-bold mb-2" style={{ color: r.color, fontFamily: "var(--font-montserrat)" }}>
+                    {score}/{quizQuestions.length}
+                  </div>
+                  <p className="text-foreground font-semibold text-lg mb-2" style={{ fontFamily: "var(--font-montserrat)" }}>{r.text}</p>
+                  <p className="text-muted-foreground text-sm font-mono mb-8">Правильных ответов: {score} из {quizQuestions.length}</p>
+                  <button onClick={handleRestart}
+                    className="bg-primary text-primary-foreground rounded-full px-10 py-3 font-mono font-bold text-sm hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all duration-300"
+                  >
+                    Пройти ещё раз
+                  </button>
+                </>
+              )})()}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 type Threat = typeof threats[0]
 type Tip = typeof tips[0]
 
@@ -689,6 +917,16 @@ const Index = () => {
     </div>
   </div>
 
+  <!-- QUIZ -->
+  <div style="background:#111;border:1px solid #222;border-radius:24px;padding:40px;margin-bottom:32px" id="quiz">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="display:inline-block;background:rgba(0,207,255,0.1);border:1px solid rgba(0,207,255,0.3);border-radius:999px;padding:4px 16px;font-size:11px;font-family:monospace;color:#00cfff;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px">Викторина</div>
+      <div style="font-size:26px;font-weight:800;margin-bottom:6px">Проверь себя — ты готов?</div>
+      <div style="font-size:12px;color:#555;font-family:monospace">8 вопросов · Каждый основан на реальных угрозах</div>
+    </div>
+    <div id="quiz-container" style="max-width:640px;margin:0 auto"></div>
+  </div>
+
   <!-- FOOTER -->
   <div class="kb-footer">
     <div class="kb-footer-title">Знание —<br>лучшая защита.</div>
@@ -713,6 +951,59 @@ const Index = () => {
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.kb-modal-overlay.open').forEach(function(m){m.classList.remove('open')});document.body.style.overflow=''}})
+
+// QUIZ
+var quizData=[
+  {q:'Ты получил сообщение от друга: «Зайди срочно на этот сайт, там твои фото!» Ссылка ведёт на vk-photos.ru. Что делать?',o:['Перейти и посмотреть','Не переходить — это фишинг. Написать другу в другом месте','Переслать ссылку другим','Ввести логин и пароль чтобы проверить'],c:1,e:'Верно! Аккаунт друга мог быть взломан. Настоящий ВКонтакте — только vk.com.'},
+  {q:'Тебе написали в TikTok: «Ты выиграл PlayStation 5! Оплати только доставку — 490 руб». Что это?',o:['Настоящий розыгрыш — надо платить','Фейковый розыгрыш — настоящие призы не требуют оплаты','Возможно настоящий — зависит от аккаунта','Надо спросить родителей и заплатить'],c:1,e:'Правильно! Настоящий розыгрыш никогда не просит денег за доставку.'},
+  {q:'Какой из этих паролей самый надёжный?',o:['qwerty123','Вася2008','Tr0ub4dor&3!kP','12345678'],c:2,e:'Надёжный пароль — длинный, с разным регистром, цифрами и спецсимволами.'},
+  {q:'Ты хочешь скачать читы для игры. Где это делать безопаснее?',o:['На первом сайте из Google','На торрент-трекере','Это опасно в любом случае — читы часто содержат вирусы','На сайте с рекламой'],c:2,e:'Читы — одна из главных причин заражений. Они почти всегда содержат стилеры паролей.'},
+  {q:'В CS2 в последнюю секунду обмена один предмет изменился. Что делать?',o:['Подтвердить — раз договорились','Отменить — это трейд-скам, предмет подменили','Быстро согласиться','Спросить и всё равно согласиться'],c:1,e:'Подмена в последнюю секунду — классический трейд-скам. Всегда отменяй если что-то изменилось.'},
+  {q:'Тебя оскорбляют в комментариях. Как правильно реагировать?',o:['Отвечать на каждый комментарий','Не отвечать, скриншоты, заблокировать и пожаловаться','Удалить аккаунт','Попросить друзей ответить'],c:1,e:'Ответы только подпитывают агрессоров. Алгоритм: не отвечать → скриншоты → блокировка → жалоба.'},
+  {q:'Как проверить, не утекли ли твои пароли?',o:['Никак — невозможно узнать','Зайти на haveibeenpwned.com и ввести почту','Позвонить в банк','Поменять все пароли на один новый'],c:1,e:'HaveIBeenPwned.com — бесплатный сервис проверки утечек. Нашлись совпадения — срочно меняй пароли.'},
+  {q:'Что такое двухфакторная аутентификация (2FA)?',o:['Два разных пароля от аккаунта','Дополнительный код из смс или приложения при входе','Секретный вопрос при восстановлении','Антивирусная программа'],c:1,e:'2FA — второй уровень защиты. Даже зная пароль, хакер не войдёт без кода из твоего телефона.'}
+];
+var qIdx=0,qScore=0,qAnswered=false;
+function quizRender(){
+  var c=document.getElementById('quiz-container');
+  if(!c)return;
+  if(qIdx>=quizData.length){quizFinish(c);return;}
+  var d=quizData[qIdx];
+  var pct=Math.round((qIdx/quizData.length)*100);
+  var opts=d.o.map(function(o,i){var btn='<button onclick="quizAnswer('+i+')" id="qopt'+i+'" style="display:block;width:100%;text-align:left;background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:14px 18px;font-size:13px;font-family:monospace;color:#ccc;margin-bottom:10px;cursor:pointer;transition:border-color .2s"><span style="color:#555;margin-right:10px">'+String.fromCharCode(65+i)+'.</span>'+o+'</button>';return btn;}).join('');
+  c.innerHTML='<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px"><span style="font-size:12px;color:#555;font-family:monospace">Вопрос '+(qIdx+1)+' из '+quizData.length+'</span><div style="flex:1;height:4px;background:#222;border-radius:4px"><div style="height:100%;background:#00cfff;border-radius:4px;width:'+pct+'%;transition:width .5s"></div></div><span style="font-size:12px;color:#00cfff;font-family:monospace">'+qScore+' ✓</span></div><div style="background:#0d0d0d;border:1px solid #222;border-radius:16px;padding:20px;margin-bottom:16px"><p style="font-size:14px;font-weight:600;color:#fff;line-height:1.6;margin:0">'+d.q+'</p></div>'+opts+'<div id="quiz-explanation" style="display:none"></div><div id="quiz-next" style="display:none;margin-top:12px"><button onclick="quizNext()" style="width:100%;background:#00cfff;color:#000;border:none;border-radius:999px;padding:14px;font-size:13px;font-weight:700;font-family:monospace;cursor:pointer">'+((qIdx+1>=quizData.length)?'Посмотреть результат →':'Следующий вопрос →')+'</button></div>';
+  qAnswered=false;
+}
+function quizAnswer(i){
+  if(qAnswered)return;
+  qAnswered=true;
+  var d=quizData[qIdx];
+  var correct=i===d.c;
+  if(correct)qScore++;
+  for(var j=0;j<d.o.length;j++){
+    var btn=document.getElementById('qopt'+j);
+    if(!btn)continue;
+    if(j===d.c){btn.style.border='2px solid #22c55e';btn.style.background='rgba(34,197,94,0.1)';btn.style.color='#22c55e';}
+    else if(j===i){btn.style.border='2px solid #ef4444';btn.style.background='rgba(239,68,68,0.1)';btn.style.color='#ef4444';}
+    else{btn.style.opacity='0.4';}
+    btn.style.cursor='default';
+  }
+  var exp=document.getElementById('quiz-explanation');
+  if(exp){exp.style.display='block';exp.style.background=correct?'rgba(34,197,94,0.08)':'rgba(239,68,68,0.08)';exp.style.border='1px solid '+(correct?'rgba(34,197,94,0.3)':'rgba(239,68,68,0.3)');exp.style.borderRadius='14px';exp.style.padding='14px 18px';exp.style.marginTop='4px';exp.innerHTML='<span style="font-size:16px">'+(correct?'✅':'❌')+'</span> <span style="font-size:13px;font-weight:700;color:#fff">'+(correct?'Правильно!':'Неверно')+'</span><p style="font-size:13px;color:#aaa;margin:6px 0 0;line-height:1.6">'+d.e+'</p>';}
+  var nxt=document.getElementById('quiz-next');if(nxt)nxt.style.display='block';
+}
+function quizNext(){qIdx++;quizRender();}
+function quizFinish(c){
+  var pct=qScore/quizData.length;
+  var emoji,text,color;
+  if(pct===1){emoji='🏆';text='Идеально! Ты настоящий эксперт по кибербезопасности';color='#22c55e';}
+  else if(pct>=0.75){emoji='💪';text='Отлично! Ты хорошо разбираешься в угрозах';color='#00cfff';}
+  else if(pct>=0.5){emoji='📚';text='Неплохо, но есть над чем поработать';color='hsl(35,100%,55%)';}
+  else{emoji='⚠️';text='Нужно подучить материал!';color='#ef4444';}
+  c.innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:72px;margin-bottom:16px">'+emoji+'</div><div style="font-size:48px;font-weight:800;color:'+color+';margin-bottom:8px">'+qScore+'/'+quizData.length+'</div><p style="font-size:18px;font-weight:600;color:#fff;margin-bottom:6px">'+text+'</p><p style="font-size:13px;color:#555;font-family:monospace;margin-bottom:32px">Правильных ответов: '+qScore+' из '+quizData.length+'</p><button onclick="quizRestart()" style="background:#00cfff;color:#000;border:none;border-radius:999px;padding:14px 40px;font-size:14px;font-weight:700;font-family:monospace;cursor:pointer">Пройти ещё раз</button></div>';
+}
+function quizRestart(){qIdx=0;qScore=0;qAnswered=false;quizRender();}
+document.addEventListener('DOMContentLoaded',function(){quizRender();});
 </script>
 </body>
 </html>`
@@ -989,6 +1280,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
           </div>
         )}
       </div>
+
+      {/* Quiz */}
+      <QuizSection />
+
       <Footer />
 
       {/* Tilda code modal button */}
