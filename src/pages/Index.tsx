@@ -67,6 +67,64 @@ const Index = () => {
           <RotatingTextAccent />
         </main>
 
+        {/* How it works guide */}
+        <section className="mx-4 md:mx-0 mt-6 mb-6 rounded-4xl bg-card border border-border px-8 py-10">
+          <div className="text-center mb-8">
+            <div className="inline-block bg-primary/10 border border-primary/30 rounded-full px-4 py-1 text-xs font-mono text-primary uppercase tracking-widest mb-3">
+              Как пользоваться сайтом
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground" style={{ fontFamily: "var(--font-montserrat)" }}>
+              Всё просто — 3 шага
+            </h2>
+          </div>
+
+          <div className="relative flex flex-col md:flex-row items-start gap-0 md:gap-0">
+            {/* Connecting line (desktop) */}
+            <div className="hidden md:block absolute top-8 left-[calc(16.6%-1px)] right-[calc(16.6%-1px)] h-px bg-border z-0" />
+
+            {[
+              {
+                step: "01",
+                emoji: "📖",
+                title: "Читай про угрозу",
+                desc: "Выбери одну из трёх угроз ниже и узнай, как именно работает эта схема мошенников — без сложных слов.",
+              },
+              {
+                step: "02",
+                emoji: "🔍",
+                title: "Учись распознавать",
+                desc: "В каждом разделе — список признаков. Запомни их, чтобы вовремя заметить опасность в реальной жизни.",
+              },
+              {
+                step: "03",
+                emoji: "🛡️",
+                title: "Защищайся",
+                desc: "Следуй советам из блока «Как защититься» — и ты будешь на голову выше большинства пользователей.",
+              },
+            ].map((item, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center flex-1 px-4 mb-6 md:mb-0">
+                {/* Step circle */}
+                <div className="w-16 h-16 rounded-full bg-background border-2 border-primary flex items-center justify-center mb-4 shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
+                  <span className="text-2xl">{item.emoji}</span>
+                </div>
+                <div className="text-xs font-mono text-primary mb-1 tracking-widest">ШАГ {item.step}</div>
+                <h3 className="text-base font-bold text-foreground mb-2" style={{ fontFamily: "var(--font-montserrat)" }}>
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <a href="#threats">
+              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-mono font-semibold text-sm hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300 flex items-center gap-2 mx-auto">
+                Начать читать <Icon name="ArrowDown" size={16} />
+              </button>
+            </a>
+          </div>
+        </section>
+
         {/* Intro banner */}
         <section className="mx-4 md:mx-0 mt-6 mb-6 rounded-4xl bg-card border border-border px-8 py-10 flex flex-col md:flex-row items-center gap-6">
           <div className="text-6xl">🛡️</div>
