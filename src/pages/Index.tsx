@@ -132,7 +132,65 @@ const threats = [
   },
 ]
 
+const tips = [
+  {
+    emoji: "🔑",
+    text: "Уникальный пароль для каждого сайта",
+    why: "Самая частая причина взломов — один пароль на всё",
+    explanation: "Когда взламывают один сайт, хакеры получают список паролей и сразу проверяют их на всех популярных сервисах. Если ты используешь один пароль везде — достаточно одной утечки, чтобы потерять всё. Уникальный пароль на каждом сайте делает такую атаку бессмысленной.",
+    howTo: [
+      "Установи бесплатный менеджер паролей — например, Bitwarden или KeePass",
+      "Он сам генерирует сложные пароли и запоминает их — тебе нужно помнить только один мастер-пароль",
+      "Начни с самых важных аккаунтов: почта, соцсети, банк",
+      "Никогда не сохраняй пароли в заметках или в обычном текстовом файле",
+    ],
+    fact: "Среднестатистический пользователь имеет 100+ аккаунтов. Запомнить уникальные пароли для всех без менеджера — невозможно.",
+  },
+  {
+    emoji: "📱",
+    text: "Двухфакторная аутентификация везде",
+    why: "Даже зная пароль, хакер не войдёт без второго подтверждения",
+    explanation: "Двухфакторная аутентификация (2FA) — это дополнительный слой защиты. После ввода пароля сервис запрашивает одноразовый код из смс или приложения. Даже если мошенник узнал твой пароль — без доступа к твоему телефону он всё равно не войдёт в аккаунт.",
+    howTo: [
+      "Зайди в настройки безопасности ВКонтакте, почты, игровых платформ",
+      "Найди раздел «Двухфакторная аутентификация» или «Подтверждение входа»",
+      "Привяжи номер телефона или установи приложение-аутентификатор (Google Authenticator, Яндекс Ключ)",
+      "Включи 2FA хотя бы на почте — это самый важный аккаунт, через который восстанавливаются все остальные",
+    ],
+    fact: "По данным Microsoft, включение двухфакторки блокирует 99,9% автоматизированных атак на аккаунты.",
+  },
+  {
+    emoji: "🔍",
+    text: "Проверяй адрес сайта перед вводом данных",
+    why: "Фишинговые сайты выглядят идентично настоящим — разница только в адресе",
+    explanation: "Мошенники тратят часы на создание копий популярных сайтов — один в один. Единственное, что они не могут подделать — это адрес в строке браузера. Настоящий сайт ВКонтакте всегда vk.com. Не vk-login.ru, не vkontakte.net, не vk.com.login-secure.ru — только vk.com.",
+    howTo: [
+      "Перед вводом логина или пароля всегда смотри на адресную строку браузера",
+      "Проверяй наличие замочка (https) — это базовая безопасность соединения",
+      "Если перешёл по ссылке — сравни адрес с официальным сайтом",
+      "Сохрани важные сайты в закладки и заходи только через них",
+      "При малейших сомнениях — закрой вкладку и открой сайт вручную",
+    ],
+    fact: "Большинство фишинговых сайтов существуют меньше 24 часов — мошенники создают их, собирают данные и исчезают.",
+  },
+  {
+    emoji: "🚨",
+    text: "Не верь «срочным» сообщениям о призах",
+    why: "Срочность и жадность — главные инструменты мошенников",
+    explanation: "«Ты выиграл!», «Аккаунт заблокируют через час!», «Только сегодня!» — всё это создаёт панику и спешку. Когда человек торопится, он не думает критически. Мошенники специально создают это давление, чтобы ты не успел остановиться и проверить информацию.",
+    howTo: [
+      "Если сообщение требует немедленных действий — это красный флаг, притормози",
+      "Настоящие призы не исчезают через 5 минут — у тебя будет время всё проверить",
+      "Загугли название розыгрыша или компании + слово «мошенники» или «развод»",
+      "Спроси взрослого или друга — взгляд со стороны помогает увидеть обман",
+      "Помни: бесплатный сыр только в мышеловке. Если что-то кажется слишком хорошим — оно таковым и является",
+    ],
+    fact: "Исследования показывают: люди в состоянии спешки в 3 раза чаще совершают ошибки при оценке информации в интернете.",
+  },
+]
+
 type Threat = typeof threats[0]
+type Tip = typeof tips[0]
 
 function ThreatModal({ threat, onClose }: { threat: Threat; onClose: () => void }) {
   return (
@@ -209,6 +267,7 @@ function ThreatModal({ threat, onClose }: { threat: Threat; onClose: () => void 
 
 const Index = () => {
   const [activeThreat, setActiveThreat] = useState<Threat | null>(null)
+  const [activeTip, setActiveTip] = useState<Tip | null>(null)
 
   return (
     <div className="w-full min-h-screen py-0 bg-background">
@@ -393,23 +452,81 @@ const Index = () => {
             <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--font-montserrat)" }}>
               Золотые правила безопасности
             </h2>
-            <p className="text-muted-foreground text-sm mb-10 font-mono">Запомни — и будешь в безопасности 99% времени</p>
+            <p className="text-muted-foreground text-sm mb-10 font-mono">Нажми на карточку — узнай подробнее</p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { text: "Уникальный пароль для каждого сайта", emoji: "🔑" },
-                { text: "Двухфакторная аутентификация везде", emoji: "📱" },
-                { text: "Проверяй адрес сайта перед вводом данных", emoji: "🔍" },
-                { text: "Не верь «срочным» сообщениям о призах", emoji: "🚨" },
-              ].map((tip, i) => (
-                <div key={i} className="bg-background/50 rounded-2xl p-6 border border-border flex flex-col items-center gap-3 text-center">
+              {tips.map((tip, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveTip(tip)}
+                  className="bg-background/50 rounded-2xl p-6 border border-border flex flex-col items-center gap-3 text-center cursor-pointer transition-all duration-300 hover:scale-[1.04] hover:border-primary/50 hover:shadow-[0_0_20px_hsl(var(--primary)/0.15)] group"
+                >
                   <span className="text-3xl">{tip.emoji}</span>
                   <p className="text-foreground text-sm leading-relaxed">{tip.text}</p>
-                </div>
+                  <span className="text-xs font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity">Подробнее →</span>
+                </button>
               ))}
             </div>
           </div>
         </section>
+
+        {/* Tip modal */}
+        {activeTip && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setActiveTip(null)}>
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+            <div
+              className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-card border-t-[3px] border-border shadow-2xl"
+              style={{ borderTopColor: "hsl(var(--primary))" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveTip(null)}
+                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-background/80 border border-border flex items-center justify-center hover:scale-110 transition-transform"
+              >
+                <Icon name="X" size={16} className="text-muted-foreground" />
+              </button>
+              <div className="p-8">
+                <div className="text-5xl mb-4">{activeTip.emoji}</div>
+                <h3 className="text-2xl font-bold text-primary mb-1" style={{ fontFamily: "var(--font-montserrat)" }}>
+                  {activeTip.text}
+                </h3>
+                <p className="text-muted-foreground text-sm font-mono mb-6">{activeTip.why}</p>
+
+                <div className="flex flex-col gap-4">
+                  <div className="bg-background/60 rounded-2xl p-5 border border-border">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Icon name="Info" size={14} className="text-primary" />
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Что это значит</span>
+                    </div>
+                    <p className="text-foreground text-sm leading-relaxed">{activeTip.explanation}</p>
+                  </div>
+
+                  <div className="bg-background/60 rounded-2xl p-5 border border-border">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Icon name="Lightbulb" size={14} className="text-primary" />
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Как сделать прямо сейчас</span>
+                    </div>
+                    <ul className="flex flex-col gap-2">
+                      {activeTip.howTo.map((step, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm">
+                          <div className="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="Check" size={11} />
+                          </div>
+                          <span className="text-foreground leading-relaxed">{step}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-2xl px-5 py-4 border border-primary/20 bg-primary/5 text-sm font-mono flex items-center gap-3">
+                    <span className="text-2xl">💡</span>
+                    <span className="text-muted-foreground italic">{activeTip.fact}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
