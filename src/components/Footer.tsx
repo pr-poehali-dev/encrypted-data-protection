@@ -34,7 +34,32 @@ export default function Footer() {
           </div>
         </div>
 
-        <div id="contact" className="w-full px-6 py-16 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0 border-t border-border mt-16">
+        {/* Authors */}
+        <div className="border-t border-border mt-16 pt-12 pb-4">
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest text-center mb-8">Авторы проекта</p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            {[
+              { name: "Имя Фамилия", role: "Автор 1", grade: "10 класс" },
+              { name: "Имя Фамилия", role: "Автор 2", grade: "10 класс" },
+            ].map((author, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-5 bg-background/50 border border-border rounded-2xl px-8 py-6 flex-1 max-w-sm mx-auto md:mx-0"
+              >
+                <div className="w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center text-2xl flex-shrink-0">
+                  👤
+                </div>
+                <div>
+                  <p className="text-foreground font-bold text-lg" style={{ fontFamily: "var(--font-montserrat)" }}>{author.name}</p>
+                  <p className="text-primary text-xs font-mono uppercase tracking-widest">{author.role}</p>
+                  <p className="text-muted-foreground text-xs font-mono">{author.grade}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div id="contact" className="w-full px-6 py-16 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0 border-t border-border">
           <div className="flex flex-col md:flex-row gap-2 text-center md:text-left">
             <h2 className="text-foreground font-mono text-xl font-bold">КиберЩиток</h2>
             <p className="text-foreground font-mono font-normal text-base">Учебный проект по кибербезопасности</p>
